@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Highchart.js -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -57,14 +58,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-    <figure class="highcharts-figure">
-      <div id="container"></div>
-      <p class="highcharts-description">
-        Chart showing multiple axes with a gauge series. The axes are positioned
-        to display an outer and inner axis. The chart is dynamically updated
-        every few seconds with a new value.
-      </p>
-    </figure>
+    <div id="container"></div>
 
     <script>
       Highcharts.chart(
@@ -114,7 +108,7 @@
               minorTickPosition: "outside",
               tickColor: "#933",
               minorTickColor: "#933",
-              tickLength: 5,
+              tickLength: 10,
               minorTickLength: 5,
               labels: {
                 distance: 12,
@@ -160,25 +154,25 @@
               },
             },
           ],
-        },
-        // Add some life
-        function (chart) {
-          setInterval(function () {
-            if (chart.axes) {
-              // not destroyed
-              var point = chart.series[0].points[0],
-                newVal,
-                inc = Math.round((Math.random() - 0.5) * 20);
-
-              newVal = point.y + inc;
-              if (newVal < 0 || newVal > 200) {
-                newVal = point.y - inc;
-              }
-
-              point.update(newVal);
-            }
-          }, 3000);
         }
+        // Add some life
+        // function (chart) {
+        //   setInterval(function () {
+        //     if (chart.axes) {
+        //       // not destroyed
+        //       var point = chart.series[0].points[0],
+        //         newVal,
+        //         inc = Math.round((Math.random() - 0.5) * 20);
+
+        //       newVal = point.y + inc;
+        //       if (newVal < 0 || newVal > 200) {
+        //         newVal = point.y - inc;
+        //       }
+
+        //       point.update(newVal);
+        //     }
+        //   }, 3000);
+        // }
       );
     </script>
   </body>
