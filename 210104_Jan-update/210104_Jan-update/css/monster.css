@@ -1,0 +1,205 @@
+@charset "utf-8";
+
+.monster-wrap {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.mon{
+  background: url(../img/mon1-bg.jpg) no-repeat center 0;
+  background-size: cover;
+}
+.monster-wrap .content {
+  padding: 10px 0 130px;
+}
+
+.monster-wrap .mon-2.content {
+  padding-bottom: 150px;
+}
+
+.mon-txtBox {
+  padding-top: 150px;
+}
+
+.mon-tit {
+  margin: 0;
+}
+
+.mon-txt {
+  margin: 40px 0 0;
+}
+
+.mon-txt p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.mon-main-pic {
+  position: absolute;
+  top: -50px;
+  left: -330px;
+  width: 1428px;
+}
+
+/* .mon-footer{
+  bottom: -78px;
+} */
+
+.mon2-tittle::before{
+  content: "";
+  background-image: url(../img/mon2-icon.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translatex(-40px);
+  top: -5px;
+}
+
+.mon-2 .mon-main-pic {
+  position: absolute;
+  top: -130px;
+  left: -121px;
+  width: 1109px;
+}
+
+.monster-general-wrap {
+  position: relative;
+  z-index: 1;
+  background: url(../img/mon2-bg.jpg) no-repeat center 0;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mon-general-box {
+  min-height: 550px;
+}
+
+.mon-general-info:after {
+  clear: both;
+}
+.mon-general-info:after,
+.mon-general-info:before {
+  display: table;
+  content: " ";
+}
+.mon-general-tit {
+  display: inline-block;
+  width: 16%;
+  margin: 0 7% 0 0;
+  float: left;
+}
+
+.mon-general-txt {
+  display: inline-block;
+  width: 74%;
+  font-size: 16px;
+  margin: 0;
+}
+
+.mon-general-pic {
+  margin: 0;
+  text-align: right;
+  left: -50px;
+  position: relative;
+}
+
+@media (max-width: 1600px) {
+
+}
+
+@media (max-width: 1024px) {
+  .content {
+    padding-top: 72px;
+}
+  .mon2-tittle::before{
+    transform: translateY(-35px);
+    top: 0;
+    left: 26px;
+  }
+  .mon-general-pic{
+    left: 0;
+  }
+  .mon-general-pic img{
+    margin-bottom: 1rem;
+  }
+  .mon-general-box {
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 991px) {
+  .mon-txtBox {
+    padding: 50px 0 0;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+  }
+
+  .mon-1 .mon-txtBox {
+    padding-top: 0;
+  }
+
+  .mon-txt p {
+    font-size: 14px;
+  }
+
+  .monster-wrap .mon-1 {
+    background-position-x: 80%;
+  }
+
+  .monster-wrap .content {
+    padding: 100px 0;
+  }
+
+  .monster-wrap .mon-2.content {
+    padding-bottom: 100px;
+  }
+
+  .mon-main-pic,
+  .mon-2 .mon-main-pic {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .mon-2 .mon-main-pic {
+    margin-left: 0;
+  }
+  .mon-general-txt {
+    width: 81%;
+    font-size: 14px;
+  }
+  .mon-general-tit {
+    margin-right: 3%;
+  }
+}
+
+@media (max-width: 767px) {
+  
+  .mon-general-box {
+    min-height: 5rem;
+  }
+  
+  .mon-general-pic {
+    min-height: 3.58rem;
+    margin-bottom: 0.5rem
+  }
+}
+
+@media (max-width: 480px) {
+  .monster-wrap .content {
+    padding-top: 60px;
+  }
+
+  .mon-general-tit {
+    width: 20%;
+  }
+
+  .mon-general-txt {
+    width: 77%;
+    font-size: 12px;
+  }
+
+}
