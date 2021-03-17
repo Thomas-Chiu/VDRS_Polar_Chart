@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts</title>
+  <style>
+    #main {
+      width: 100vw;
+      height: 100vh;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <div id="main"></div>
+
+  <!-- 引用 echarts.js cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+
+<script>
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+var data = [120, 0]; // 定義 polar data 範圍
+// var data2 = [240, 0]; // 定義 polar data2 範圍
+
+for (let i = 1; i <= 360; i++) {
+    let r =Math.round(Math.random()*120);
+    data.push([r, i]);
+}
+
+// for (let i = 1; i <= 360; i++) {
+//     let r =Math.round(Math.random()*240);
+//     data2.push([r, i]);
+// }
+
+
+option = {
+    title: {
+        text: '數位大餅圖'
+    },
+    legend: {
+        // legend.data 和 series[].name 要一樣
+        data: ['車速', '里程數']
+    },
+    polar: {
+        center: ['50%', '50%']
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
+    angleAxis: {
+        type: 'value',
+        startAngle: 0
+    },
+    radiusAxis: {
+        min: 0
+    },
+    series: [
+      {
+        coordinateSystem: 'polar',
+        name: '車速',
+        type: 'line',
+        showSymbol: false,
+        data: data
+      },
+    // {
+    //     coordinateSystem: 'polar',
+    //     name: '里程數',
+    //     type: 'line',
+    //     showSymbol: false,
+    //     data: data2
+    // }
+  ],
+    animationDuration: 2000
+};
+
+option && myChart.setOption(option);
+</script>
+</body>
+</html>

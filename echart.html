@@ -54,33 +54,35 @@ var option;
             }
           },
           indicator: [
-            { name: 23, max: 120},
-            { name: 22, max: 120},
-            { name: 21, max: 120},
-            { name: 20, max: 120},
-            { name: 19, max: 120},
-            { name: 18, max: 120},
-            { name: 17, max: 120},
-            { name: 16, max: 120},
-            { name: 15, max: 120},
-            { name: 14, max: 120},
-            { name: 13, max: 120},
-            { name: 12, max: 120},
-            { name: 11, max: 120}, 
-            { name: 10, max: 120},
-            { name: 9, max: 120},
-            { name: 8, max: 120},
-            { name: 7, max: 120},
-            { name: 6, max: 120},
-            { name: 5, max: 120},
-            { name: 4, max: 120},
-            { name: 3, max: 120},
-            { name: 2, max: 120},
-            { name: 1, max: 120},
-            { name: "0", max: 120}
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240}, 
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
+            { name: "", max: 240},
           ]
         },
-        series: [{
+        series: [
+          {
+          name: "內圈data",
           type: "radar",
           data: [
           {
@@ -139,8 +141,34 @@ var option;
               23
             ]
           }
+          ]
+        },
+        {
+        name: '外圈時間',
+        type: 'gauge',
+        min: 0,
+        max: 24,
+        splitNumber: 24,
+        axisLine: {
+            lineStyle: {
+                width: 1,
+                color: [[1, '#000']],
+            }
+        },
+        splitLine: {
+          length: 20,
+          distance: 0
+        },
+        axisTick: { show: false },
+        axisLabel: {
+            fontSize: 25,
+            distance: -60,
+        },
+        anchor: { show: false },
+        pointer: { show: false },
+        detail: { show: false },
+        }
         ]
-        }]
     
 }
 
