@@ -19,23 +19,28 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
 
 <script>
-var chartDom = document.getElementById('main');
-var myChart = echarts.init(chartDom);
-var option;
-var data = []; 
-// var data2 = [240, 0]; // 定義 polar data2 範圍
+let chartDom = document.getElementById('main');
+let myChart = echarts.init(chartDom);
+let option;
+let data = [];
+let data2 = [];
 
 for (let i = 0; i <= 1000; i++) {
     let r =Math.round(Math.random()*120);
     data.push([r, i]);
 }
 
+for (let i = 0; i <= 1000; i++) {
+    let r =Math.round(Math.random()*120);
+    data2.push([r, i]);
+}
+
 console.log(data);
 
-// for (let i = 1; i <= 360; i++) {
-//     let r =Math.round(Math.random()*240);
-//     data2.push([r, i]);
-// }
+for (let i = 1; i <= 360; i++) {
+    let r =Math.round(Math.random()*240);
+    data2.push([r, i]);
+}
 
 
 option = {
@@ -48,21 +53,17 @@ option = {
     },
     polar: {
         center: ['50%', '50%'],
-        radius: ['25%', '75%'] // [內半徑, 外半徑]
-    },
-    tooltip: {
-        trigger: 'axis',
-        // axisPointer: {
-        //     type: 'cross'
-        // }
-    },
+        radius: ['50%', '75%'] // [內半徑, 外半徑]
+    },    
+    tooltip: { trigger: 'axis' },
     angleAxis: {
         type: 'value',
         startAngle: -90,
-        splitNumber: 0
+        splitNumber: 0,
+        axisLine: { show: false }
     },
     radiusAxis: {
-        min: 0
+        min: 0,
     },
     series: [
       {
@@ -72,16 +73,17 @@ option = {
         showSymbol: false,
         data: data
       },
-    // {
-    //     coordinateSystem: 'polar',
-    //     name: '里程數',
-    //     type: 'line',
-    //     showSymbol: false,
-    //     data: data2
-    // }
+    {
+        coordinateSystem: 'polar',
+        name: '里程數',
+        type: 'line',
+        showSymbol: false,
+        data: data2,
+    }
   ],
     animationDuration: 2000
 };
+
 
 option && myChart.setOption(option);
 </script>
