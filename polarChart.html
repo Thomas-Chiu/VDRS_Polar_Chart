@@ -22,13 +22,15 @@
 var chartDom = document.getElementById('main');
 var myChart = echarts.init(chartDom);
 var option;
-var data = [120, 0]; // 定義 polar data 範圍
+var data = []; 
 // var data2 = [240, 0]; // 定義 polar data2 範圍
 
-for (let i = 1; i <= 360; i++) {
+for (let i = 0; i <= 1000; i++) {
     let r =Math.round(Math.random()*120);
     data.push([r, i]);
 }
+
+console.log(data);
 
 // for (let i = 1; i <= 360; i++) {
 //     let r =Math.round(Math.random()*240);
@@ -41,21 +43,23 @@ option = {
         text: '數位大餅圖'
     },
     legend: {
-        // legend.data 和 series[].name 要一樣
+        // legend.data 和 series[].data 名字要一樣
         data: ['車速', '里程數']
     },
     polar: {
-        center: ['50%', '50%']
+        center: ['50%', '50%'],
+        radius: ['25%', '75%'] // [內半徑, 外半徑]
     },
     tooltip: {
         trigger: 'axis',
-        axisPointer: {
-            type: 'cross'
-        }
+        // axisPointer: {
+        //     type: 'cross'
+        // }
     },
     angleAxis: {
         type: 'value',
-        startAngle: 0
+        startAngle: -90,
+        splitNumber: 0
     },
     radiusAxis: {
         min: 0
