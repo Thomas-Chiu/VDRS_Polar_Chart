@@ -4,10 +4,10 @@
   <title>ECharts</title>
   <style>
     #main {
-      width: 100vw;
+      width: 75vw;
       height: 100vh;
-      padding-top: 1rem;
-    }
+      margin: auto;
+      }
   </style>
 </head>
 
@@ -16,7 +16,7 @@
   <div id="main"></div>
 
   <!-- 引用 echarts.js cdn -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+  <script src="./js/echarts.min.js"></script>
 
 <script>
 let chartDom = document.getElementById('main');
@@ -24,9 +24,10 @@ let myChart = echarts.init(chartDom);
 let option;
 let data = [];
 let data2 = [];
+let busId = "ABC-1234"
 
 for (let i = 0; i <= 1000; i++) {
-    let r =Math.round(Math.random()*120);
+    let r =Math.round(Math.random()*100);
     data.push([r, i]);
 }
 
@@ -53,33 +54,75 @@ option = {
     },
     polar: {
         center: ['50%', '50%'],
-        radius: ['50%', '75%'] // [內半徑, 外半徑]
+        radius: ['45%', '75%'] // [內半徑, 外半徑]
     },    
-    tooltip: { trigger: 'axis' },
+    tooltip: { 
+      trigger: 'axis', // axis 有提示框
+      axisPointer: { type: 'cross' } 
+    },
     angleAxis: {
-        type: 'value',
+        type: 'time',
         startAngle: -90,
         splitNumber: 0,
-        axisLine: { show: false }
+        axisLine: { show: false },
     },
     radiusAxis: {
         min: 0,
+        max: function(value) {
+          return value.max + 50
+        }
     },
     series: [
       {
-        coordinateSystem: 'polar',
+        type: 'line',
         name: '車速',
-        type: 'line',
-        showSymbol: false,
-        data: data
-      },
-    {
         coordinateSystem: 'polar',
-        name: '里程數',
-        type: 'line',
         showSymbol: false,
-        data: data2,
-    }
+        data: data,
+        lineStyle: { width: 1 }
+      },
+      // {
+      //   type: 'line',
+      //   name: '里程數',
+      //   coordinateSystem: 'polar',
+      //   showSymbol: false,
+      //   data: data2,
+      //   lineStyle: { width: 1 }
+      // },
+      { // 外圈儀表
+        type: 'gauge',
+        name: '儀錶板',
+        title: { 
+          show: true,
+          fontWeight: 'bold',
+          fontSize: 30,
+          offsetCenter: [0, 0]
+        },
+        data: [
+          { 
+            value: null, 
+            name: busId,
+            detail: { show: false }
+          }
+        ],
+        pointer: { show: false },
+        splitNumber : 24,
+        min: 0,
+        max: 24,
+        splitLine: { distance: -50, length: 0 },
+        axisLine: { show: false },
+        axisLabel: { 
+          // show: false,
+          distance: 25, 
+          fontWeight: 'bold',
+          fontSize: 16
+        },
+        axisTick: { 
+          splitNumber: 2, 
+          length: 12.5, 
+          distance: -10,
+        },
+      }
   ],
     animationDuration: 2000
 };
