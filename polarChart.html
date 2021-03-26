@@ -19,17 +19,31 @@
   <script src="./js/echarts.min.js"></script>
 
 <script>
+// 時間 test
+var base = +new Date(1988, 9, 3);
+var oneDay = 24 * 3600 * 1000; // 一天86400000 毫秒
+console.log(oneDay);
+var data = [[base, Math.random() * 300]];
+
+for (var i = 1; i < 2000; i++) {
+    var now = new Date(base += oneDay);
+    data.push([
+        [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-'),
+        Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])
+    ]);
+}
+
 let chartDom = document.getElementById('main');
 let myChart = echarts.init(chartDom);
 let option;
-let data = [];
+// let data = [];
 let data2 = [];
 let busId = "ABC-1234"
 
-for (let i = 0; i <= 1000; i++) {
-    let r =Math.round(Math.random()*100);
-    data.push([r, i]);
-}
+// for (let i = 0; i <= 1000; i++) {
+//     let r =Math.round(Math.random()*100);
+//     data.push([r, i]);
+// }
 
 for (let i = 0; i <= 1000; i++) {
     let r =Math.round(Math.random()*120);
@@ -65,7 +79,8 @@ option = {
         startAngle: -90,
         splitNumber: 0,
         axisLine: { show: false },
-    },
+        maxInterval: oneDay
+      },
     radiusAxis: {
         min: 0,
         max: function(value) {
