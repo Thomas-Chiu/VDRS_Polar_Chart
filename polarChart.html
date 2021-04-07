@@ -515,12 +515,12 @@ option = {
         radius: ['45%', '75%'] // [內半徑, 外半徑]
     },    
     tooltip: { 
-      trigger: 'axis', // axis 有提示框
-      // axisPointer: { type: 'cross'} ,
-      // formatter: function () {
-      //   console.log("YAYA");
-      //   return 'Loading';
-      //   }
+      trigger: 'axis', 
+      position: ["45%", '55%']
+    },
+    toolbox: {
+        show: true,
+        feature: { saveAsImage: { title: "存檔" } }     
     },
     angleAxis: {
         type: 'time', // unix time 轉格式
@@ -532,6 +532,9 @@ option = {
         min: 0,
         max: function(value) {
           return value.max + 50
+        },
+        axisLabel: {
+          formatter: "{value} km",
         }
     },
     dataZoom: [
@@ -552,8 +555,9 @@ option = {
         name: '車速',
         coordinateSystem: 'polar',
         showSymbol: false,
+        legendHoverLink: false,
         data: data,
-        lineStyle: { width: 1 }
+        lineStyle: { width: 0.5 }
       },
       // {
       //   type: 'line',
@@ -592,6 +596,7 @@ option = {
           fontSize: 16
         },
         axisTick: { 
+          show: false,
           splitNumber: 2, 
           length: 12.5, 
           distance: -10,
