@@ -12,11 +12,11 @@
     <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
   </head>
   <body>
-    <div id="mapid" style="width: 500px; height: 500px"></div>
+    <div id="mapid" style="width: 1000px; height: 1000px"></div>
 
     <script src="./leaflet/leaflet.js"></script>
     <script>
-      var mymap = L.map("mapid").setView([25.031, 121.42], 16);
+      var mymap = L.map("mapid").setView([25.031, 121.42], 15);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 18,
