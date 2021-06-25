@@ -17,15 +17,15 @@
 
   <!-- 引用 echarts.min.js -->
   <script src="./js/echarts.min.js"></script>
-  <!-- 引用 moment.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+  <script src="./js/print.min.js"></script>
   <script src="./js/data.js"></script>
+  <script src="./js/data2.js"></script>
+  <script src="./js/data3.js"></script>
 
 <script>
 let chartDom = document.getElementById('main');
 let myChart = echarts.init(chartDom);
 let option;
-// let data = [];
 let busId = "ABC-1234"
 
 option = {
@@ -124,15 +124,16 @@ option = {
     animationDuration: 2000
 };
 
-
+// echart init
 option && myChart.setOption(option);
-
-
-
-var time = moment(1610649542000).format("YYYY-MM-DD HH:mm:ss");
-console.log(time);
-let unix = moment().unix(); // 1318874398
-console.log(unix);
+// 列印 echart
+// $("#print_polar_chart").click(function () {
+//   printJS({
+//     printable: "polarChart",
+//     type: "html",
+//     maxWidth: 800,
+//   });
+// });
 
 </script>
 </body>
