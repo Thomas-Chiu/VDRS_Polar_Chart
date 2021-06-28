@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <i id="print_polar_chart" class="fas fa-print"></i>
+      <!-- ECharts Dom -->
+      <div id="polarChart"></div>
+    </div>
+    <div class="row">
+        <button id="data1" class="btn" type="button">車輛一</button>
+        <button id="data2" class="btn" type="button">車輛二</button>
+        <button id="data3" class="btn" type="button">車輛三</button>
+    </div>
+  </div>
+
+  <!-- 引用 echarts.min.js -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script src="./js/echarts.min.js"></script>
+  <script src="./js/print.min.js"></script>
+  <script src="./js/data1.js"></script>
+  <script src="./js/data2.js"></script>
+  <script src="./js/data3.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

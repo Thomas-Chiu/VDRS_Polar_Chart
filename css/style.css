@@ -1,0 +1,34 @@
+#polarChart {
+  width: 1024px;
+  height: 768px;
+  margin: auto;
+}
+
+.row {
+  width: 1024px;
+  margin: auto;
+  padding-top: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.fa-print {
+  color: #333;
+  cursor: pointer;
+  float: right;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 999;
+}
+
+.btn {
+  width: 75px;
+  height: 50px;
+  margin-right: 15px;
+  background: #24b3fb7e;
+  border-radius: 15%;
+  box-shadow: 1px 1px 5px #333;
+  border: none;
+  cursor: pointer;
+}
