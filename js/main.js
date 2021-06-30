@@ -1,7 +1,5 @@
-let chartDom = document.getElementById("polarChart");
-let myChart = echarts.init(chartDom);
-let option;
-let btnStatus = 0;
+const chartDom = document.getElementById("polarChart");
+const myChart = echarts.init(chartDom);
 const getPrint = () => {
   $("#print_polar_chart").click(function () {
     printJS({
@@ -36,14 +34,18 @@ const getData = () => {
       return result;
   }
 };
+let option;
+let btnStatus = 0;
+let temp = getData();
 
 option = {
   title: {
     text: "數位大餅圖",
+    // subtext: "YA",
   },
   legend: {
     // legend.data 和 series[].data 名字要一樣
-    data: ["車速", "里程數"],
+    data: ["車速"],
   },
   polar: {
     center: ["50%", "50%"],
@@ -52,6 +54,15 @@ option = {
   tooltip: {
     trigger: "axis",
     position: ["45%", "55%"],
+    axisPointer: { type: "line" },
+    // formatter: (params) => {
+    // console.log(params);
+    //   return `
+    //             Tooltip: <br />
+    //             ${params[0].seriesName}: ${params[0].value}<br />
+    //             ${params[1].seriesName}: ${params[1].value}
+    //             `;
+    // },
   },
   toolbox: {
     show: true,
@@ -79,7 +90,7 @@ option = {
       coordinateSystem: "polar",
       showSymbol: false,
       legendHoverLink: false,
-      data: getData().data,
+      data: temp.data,
       lineStyle: { width: 0.5 },
     },
     {
@@ -95,7 +106,7 @@ option = {
       data: [
         {
           value: null,
-          name: getData().busId,
+          name: temp.busId,
           detail: { show: false },
         },
       ],
@@ -129,19 +140,22 @@ getPrint();
 // switch data;
 $("#data1").click(function () {
   btnStatus = 0;
-  option.series[0].data = getData().data;
-  option.series[1].data[0].name = getData().busId;
+  temp = getData();
+  option.series[0].data = temp.data;
+  option.series[1].data[0].name = temp.busId;
   option && myChart.setOption(option);
 });
 $("#data2").click(function () {
   btnStatus = 1;
-  option.series[0].data = getData().data;
-  option.series[1].data[0].name = getData().busId;
+  temp = getData();
+  option.series[0].data = temp.data;
+  option.series[1].data[0].name = temp.busId;
   option && myChart.setOption(option);
 });
 $("#data3").click(function () {
   btnStatus = 2;
-  option.series[0].data = getData().data;
-  option.series[1].data[0].name = getData().busId;
+  temp = getData();
+  option.series[0].data = temp.data;
+  option.series[1].data[0].name = temp.busId;
   option && myChart.setOption(option);
 });
